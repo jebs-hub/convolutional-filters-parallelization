@@ -1,20 +1,33 @@
-# started on Sat Jun 22 13:53:13 2024
+# started on Sat Jun 22 16:09:16 2024
 
 
- Performance counter stats for './build/parallel_task images/ppms/1.ppm images/ppms/out/underwater_bmx_for_3.ppm 3':
+ Performance counter stats for './build/parallel_for_matrix images/ppms/1.ppm images/ppms/out/1_for_3.ppm 3':
 
-             63,54 msec task-clock                       #    2,537 CPUs utilized             
-                22      context-switches                 #  346,260 /sec                      
-                 0      cpu-migrations                   #    0,000 /sec                      
-             1.431      page-faults                      #   22,523 K/sec                     
-       157.963.159      cycles                           #    2,486 GHz                       
-       239.091.401      instructions                     #    1,51  insn per cycle            
-        40.470.994      branches                         #  636,976 M/sec                     
-            39.564      branch-misses                    #    0,10% of all branches           
+             44.75 msec task-clock:u                     #    1.248 CPUs utilized             
+                 0      context-switches:u               #    0.000 /sec                      
+                 0      cpu-migrations:u                 #    0.000 /sec                      
+             1,432      page-faults:u                    #   32.000 K/sec                     
+         6,122,149      cpu_atom/cycles/u                #    0.137 GHz                         (0.90%)
+       155,877,547      cpu_core/cycles/u                #    3.483 GHz                         (97.42%)
+        93,406,186      cpu_atom/instructions/u          #   15.26  insn per cycle              (10.54%)
+       253,480,743      cpu_core/instructions/u          #   41.40  insn per cycle              (97.42%)
+        14,061,730      cpu_atom/branches/u              #  314.225 M/sec                       (10.91%)
+        38,753,943      cpu_core/branches/u              #  866.001 M/sec                       (97.42%)
+             1,704      cpu_atom/branch-misses/u         #    0.01% of all branches             (10.91%)
+             7,092      cpu_core/branch-misses/u         #    0.05% of all branches             (97.42%)
+             TopdownL1 (cpu_core)                 #     74.1 %  tma_backend_bound      
+                                                  #      0.2 %  tma_bad_speculation    
+                                                  #      0.6 %  tma_frontend_bound     
+                                                  #     25.1 %  tma_retiring             (97.42%)
+             TopdownL1 (cpu_atom)                 #      0.7 %  tma_bad_speculation    
+                                                  #     82.9 %  tma_retiring             (10.91%)
+                                                  #      4.9 %  tma_backend_bound      
+                                                  #      4.9 %  tma_backend_bound_aux  
+                                                  #     11.4 %  tma_frontend_bound       (10.91%)
 
-       0,025039286 seconds time elapsed
+       0.035870165 seconds time elapsed
 
-       0,060374000 seconds user
-       0,003773000 seconds sys
+       0.042641000 seconds user
+       0.001979000 seconds sys
 
 

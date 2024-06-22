@@ -1,20 +1,28 @@
-# started on Sat Jun 22 13:53:13 2024
+# started on Sat Jun 22 16:09:16 2024
 
 
- Performance counter stats for './build/parallel_task images/ppms/1.ppm images/ppms/out/underwater_bmx_for_1.ppm 1':
+ Performance counter stats for './build/parallel_for_matrix images/ppms/1.ppm images/ppms/out/1_for_1.ppm 1':
 
-             64,37 msec task-clock                       #    0,329 CPUs utilized             
-                 5      context-switches                 #   77,681 /sec                      
-                 0      cpu-migrations                   #    0,000 /sec                      
-             1.425      page-faults                      #   22,139 K/sec                     
-        84.345.761      cycles                           #    1,310 GHz                       
-       240.912.180      instructions                     #    2,86  insn per cycle            
-        40.589.052      branches                         #  630,598 M/sec                     
-            39.319      branch-misses                    #    0,10% of all branches           
+             31.05 msec task-clock:u                     #    0.521 CPUs utilized             
+                 0      context-switches:u               #    0.000 /sec                      
+                 0      cpu-migrations:u                 #    0.000 /sec                      
+             1,430      page-faults:u                    #   46.055 K/sec                     
+     <not counted>      cpu_atom/cycles/u                                                       (0.00%)
+        48,261,047      cpu_core/cycles/u                #    1.554 GHz                       
+     <not counted>      cpu_atom/instructions/u                                                 (0.00%)
+       252,779,279      cpu_core/instructions/u                                               
+     <not counted>      cpu_atom/branches/u                                                     (0.00%)
+        38,038,962      cpu_core/branches/u              #    1.225 G/sec                     
+     <not counted>      cpu_atom/branch-misses/u                                                (0.00%)
+             6,643      cpu_core/branch-misses/u                                              
+             TopdownL1 (cpu_core)                 #     16.9 %  tma_backend_bound      
+                                                  #      0.5 %  tma_bad_speculation    
+                                                  #      2.3 %  tma_frontend_bound     
+                                                  #     80.3 %  tma_retiring           
 
-       0,195857990 seconds time elapsed
+       0.059561858 seconds time elapsed
 
-       0,048868000 seconds user
-       0,016289000 seconds sys
+       0.022836000 seconds user
+       0.008960000 seconds sys
 
 
