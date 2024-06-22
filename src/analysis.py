@@ -13,8 +13,10 @@ def extract_metrics(filename):
     match = re.search(r'(\d{1,3}(?:\.\d{3})+)      cpu_core/cycles/', content)
     if not match:
         match = re.search(r'(\d{1,3}(?:\.\d{3})+)      cycles', content)
+    if not match:
+        match = re.search(r'(\d[\d,]*)\s+cpu_core/cycles/u', content)
     if match:
-        metrics['cycles'] = int(match.group(1).replace('.', ''))
+        metrics['cycles'] = int(match.group(1).replace('.', '').replace(',', ''))
     else:
         metrics['cycles'] = None
 
@@ -22,14 +24,18 @@ def extract_metrics(filename):
     match = re.search(r'(\d{1,3}(?:\.\d{3})+)      cpu_core/instructions/', content)
     if not match:
         match = re.search(r'(\d{1,3}(?:\.\d{3})+)      instructions', content)
+    if not match:
+        match = re.search(r'(\d[\d,]*)\s+cpu_core/instructions/u', content)
     
     if match:
-        metrics['instructions'] = int(match.group(1).replace('.', ''))
+        metrics['instructions'] = int(match.group(1).replace('.', '').replace(',', ''))
     else:
         metrics['instructions'] = None
 
     # Extract elapsed time
     match = re.search(r'(\d{1,2},\d{9}) seconds time elapsed', content)
+    if not match:
+        match = re.search(r'(\d+\.\d+) seconds time elapsed', content)
     if match:
         print(content)
         metrics['time_elapsed'] = float(match.group(1).replace(',', '.'))
