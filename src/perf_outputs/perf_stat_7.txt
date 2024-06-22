@@ -1,0 +1,20 @@
+# started on Sat Jun 22 13:53:13 2024
+
+
+ Performance counter stats for './build/parallel_task images/ppms/1.ppm images/ppms/out/underwater_bmx_for_7.ppm 7':
+
+             51,19 msec task-clock                       #    2,475 CPUs utilized             
+                36      context-switches                 #  703,204 /sec                      
+                14      cpu-migrations                   #  273,468 /sec                      
+             1.439      page-faults                      #   28,109 K/sec                     
+       127.019.067      cycles                           #    2,481 GHz                       
+       237.848.673      instructions                     #    1,87  insn per cycle            
+        40.061.479      branches                         #  782,539 M/sec                     
+            41.016      branch-misses                    #    0,10% of all branches           
+
+       0,020681338 seconds time elapsed
+
+       0,048106000 seconds user
+       0,004008000 seconds sys
+
+

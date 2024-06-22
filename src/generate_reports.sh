@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Usage: ./run_perf.sh <input_image> <output_image_prefix> <program>
-
+echo $"$#"
 if [ "$#" -ne 3 ]; then
     echo "Usage: $0 <input_image> <output_image_prefix> <program>"
     exit 1
@@ -20,6 +20,7 @@ for THREADS in {1..12}; do
     
     echo "Running with ${THREADS} threads..."
     perf stat -o ${PERF_OUTPUT} ./${PROGRAM} ${INPUT_IMAGE} ${OUTPUT_IMAGE} ${THREADS}
+    echo "stat -o ${PERF_OUTPUT} ./${PROGRAM} ${INPUT_IMAGE} ${OUTPUT_IMAGE} ${THREADS}"
 done
 
 echo "All runs completed. Perf stat outputs are saved in the 'perf_outputs' directory."

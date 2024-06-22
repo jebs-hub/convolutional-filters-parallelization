@@ -11,6 +11,8 @@ def extract_metrics(filename):
     
     # Extract cycles
     match = re.search(r'(\d{1,3}(?:\.\d{3})+)      cpu_core/cycles/', content)
+    if not match:
+        match = re.search(r'(\d{1,3}(?:\.\d{3})+)      cycles', content)
     if match:
         metrics['cycles'] = int(match.group(1).replace('.', ''))
     else:
@@ -18,6 +20,9 @@ def extract_metrics(filename):
 
     # Extract instructions
     match = re.search(r'(\d{1,3}(?:\.\d{3})+)      cpu_core/instructions/', content)
+    if not match:
+        match = re.search(r'(\d{1,3}(?:\.\d{3})+)      instructions', content)
+    
     if match:
         metrics['instructions'] = int(match.group(1).replace('.', ''))
     else:
@@ -26,7 +31,8 @@ def extract_metrics(filename):
     # Extract elapsed time
     match = re.search(r'(\d{1,2},\d{9}) seconds time elapsed', content)
     if match:
-        metrics['time_elapsed'] = float(match.group(1).replace(',', ''))
+        print(content)
+        metrics['time_elapsed'] = float(match.group(1).replace(',', '.'))
     else:
         metrics['time_elapsed'] = None
     
@@ -40,7 +46,10 @@ def plot_metrics(metrics):
     cycles = [metrics[t]['cycles'] for t in threads]
     instructions = [metrics[t]['instructions'] for t in threads]
     time_elapsed = [metrics[t]['time_elapsed'] for t in threads]
+
     print("times: ",time_elapsed)
+    print("cycles: ",cycles)
+    print("instructions: ",instructions)
     plt.figure(figsize=(15, 5))
 
     plt.subplot(1, 3, 1)
@@ -73,6 +82,7 @@ def main():
     for filename in files:
         metrics[i] = extract_metrics(perf_output_dir+'/'+filename)
         i +=1
+    #metrics[0] = extract_metrics(perf_output_dir+'/'+"perf_stat_1.txt")
     plot_metrics(metrics)
 
 if __name__ == '__main__':
