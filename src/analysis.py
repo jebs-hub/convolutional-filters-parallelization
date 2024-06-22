@@ -88,7 +88,6 @@ def main():
     for filename in files:
         metrics[i] = extract_metrics(perf_output_dir+'/'+filename)
         i +=1
-    #metrics[0] = extract_metrics(perf_output_dir+'/'+"perf_stat_1.txt")
     plot_metrics(metrics)
 
 if __name__ == '__main__':
