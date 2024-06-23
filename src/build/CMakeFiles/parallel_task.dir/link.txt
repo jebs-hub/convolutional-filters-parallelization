@@ -1,0 +1,1 @@
+/usr/lib64/ccache/cc -O3 -DNDEBUG CMakeFiles/parallel_task.dir/conv_filter_task.c.o -o parallel_task  /usr/lib/gcc/x86_64-redhat-linux/13/libgomp.so /usr/lib64/libpthread.a 

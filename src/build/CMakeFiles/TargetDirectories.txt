@@ -1,4 +1,6 @@
-/home/jess/convolutional-filters-parallelization/src/build/CMakeFiles/serial.dir
-/home/jess/convolutional-filters-parallelization/src/build/CMakeFiles/parallel.dir
-/home/jess/convolutional-filters-parallelization/src/build/CMakeFiles/edit_cache.dir
-/home/jess/convolutional-filters-parallelization/src/build/CMakeFiles/rebuild_cache.dir
+/home/ec2020-fra/ra173931/convolutional-filters-parallelization/src/build/CMakeFiles/serial.dir
+/home/ec2020-fra/ra173931/convolutional-filters-parallelization/src/build/CMakeFiles/parallel_for.dir
+/home/ec2020-fra/ra173931/convolutional-filters-parallelization/src/build/CMakeFiles/parallel_task.dir
+/home/ec2020-fra/ra173931/convolutional-filters-parallelization/src/build/CMakeFiles/parallel_for_matrix.dir
+/home/ec2020-fra/ra173931/convolutional-filters-parallelization/src/build/CMakeFiles/edit_cache.dir
+/home/ec2020-fra/ra173931/convolutional-filters-parallelization/src/build/CMakeFiles/rebuild_cache.dir
