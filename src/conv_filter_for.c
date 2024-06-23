@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <omp.h>
 
 typedef struct {
     unsigned char r, g, b;
@@ -93,13 +94,19 @@ void apply_blur_filter(Image *img, int kernel_size) {
 }
 
 int main(int argc, char *argv[]) {
-    if (argc != 3) {
-        fprintf(stderr, "Usage: %s <input_image> <output_image>\n", argv[0]);
+    if (argc != 4) {
+        fprintf(stderr, "Usage: %s <input_image> <output_image> <num_threads>\n", argv[0]);
         return 1;
     }
 
     const char *input_file = argv[1];
     const char *output_file = argv[2];
+    int num_threads = atoi(argv[3]);
+    if (num_threads <= 0) {
+        fprintf(stderr, "Number of threads must be a positive integer\n");
+        return 1;
+    }
+    omp_set_num_threads(num_threads);
 
     Image img = read_ppm(input_file);
     #pragma omp parallel
