@@ -1,5 +1,6 @@
 import re
 import os
+import argparse
 import matplotlib.pyplot as plt
 
 # Function to extract metrics from a perf stat output file
@@ -81,13 +82,18 @@ def plot_metrics(metrics):
 
 # Main function
 def main():
+    parser = argparse.ArgumentParser(description="A script to demonstrate command-line arguments with a 'program' argument.")
+    parser.add_argument("program", type=str, help="The name of the program.")
+    args = parser.parse_args()
     perf_output_dir = 'perf_outputs'
     metrics = {}
     files = os.listdir(perf_output_dir)
+    
     i = 1
     for filename in files:
-        metrics[i] = extract_metrics(perf_output_dir+'/'+filename)
-        i +=1
+        if args.program in filename and 'm' not in filename:
+            metrics[i] = extract_metrics(perf_output_dir+'/'+filename)
+            i +=1
     plot_metrics(metrics)
 
 if __name__ == '__main__':
