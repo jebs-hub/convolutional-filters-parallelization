@@ -109,7 +109,7 @@ int main(int argc, char *argv[]) {
     omp_set_num_threads(num_threads);
 
     Image img = read_ppm(input_file);
-    apply_blur_filter(&img, 3);
+    apply_blur_filter(&img, 20);
     write_ppm(output_file, &img);
 
     free(img.data);

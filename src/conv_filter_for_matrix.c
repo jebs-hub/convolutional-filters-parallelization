@@ -92,7 +92,10 @@ void apply_blur_filter(Image *img, int kernel_size) {
         blurred_data[i] = (Pixel *)malloc(img->width * sizeof(Pixel));
     }
 
-    #pragma omp parallel for collapse(2)
+    //#pragma omp parallel for collapse(2)
+    #pragma omp parallel for collapse(2) schedule(dynamic)
+    //int NUM_THREADS = omp_get_num_threads();
+    //#pragma omp parallel for num_threads(NUM_THREADS) collapse(2) schedule(static, (img->width - 2) * (img->height - 2) / NUM_THREADS)
     for (int y = 0; y < img->height; y++) {
         for (int x = 0; x < img->width; x++) {
             blurred_data[y][x] = apply_kernel(img->data, img->width, img->height, x, y, kernel_size);
@@ -124,7 +127,7 @@ int main(int argc, char *argv[]) {
     omp_set_num_threads(num_threads);
 
     Image img = read_ppm(input_file);
-    apply_blur_filter(&img, 3);
+    apply_blur_filter(&img, 20);
     write_ppm(output_file, &img);
 
     for (int i = 0; i < img.height; i++) {

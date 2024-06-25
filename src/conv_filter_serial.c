@@ -101,7 +101,7 @@ int main(int argc, char *argv[]) {
     const char *output_file = argv[2];
 
     Image img = read_ppm(input_file);
-    apply_blur_filter(&img, 3);
+    apply_blur_filter(&img, 20);
     write_ppm(output_file, &img);
 
     free(img.data);
