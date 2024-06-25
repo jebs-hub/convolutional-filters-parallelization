@@ -15,7 +15,7 @@ base_name="${PROGRAM##*/}"
 # Create a directory to store the perf stat outputs
 mkdir -p perf_outputs
 
-for THREADS in {1..12}; do
+for THREADS in {1..40}; do
     OUTPUT_IMAGE="${OUTPUT_PREFIX}_${THREADS}.ppm"
     PERF_OUTPUT="perf_outputs/perf_stat_${base_name}_${THREADS}.txt"
     
